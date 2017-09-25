@@ -16,7 +16,7 @@ namespace meteogramme
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new vue());
+            Application.Run(new Vue());
         }
     }
 }

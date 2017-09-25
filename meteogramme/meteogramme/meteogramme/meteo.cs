@@ -2,47 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 
 namespace meteogramme
 {
-    class meteo
+    public class Meteo
     {
+        private string _from;
+        private string _to;
+        private string _latitude;
+        private string _longitude;
 
-        public string showMeteo()
+        public Meteo(string form, string to, string lat, string lon)
         {
-            string result = "";
-            try
-            {
-                string attribute = "";
-                using (XmlReader reader = XmlReader.Create("http://api.met.no/weatherapi/locationforecast/1.9/?lat=46.205;lon=6.109"))
-                {
-                    while (reader.Read())
-                    {
-                        switch (reader.Name)
-                        {
-                            case "temperature":
-                                attribute = reader["value"];
-                                if (attribute != null)
-                                {
-                                    result += "temperature: " + attribute;
-                                }
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            throw new System.NotImplementedException();
         }
 
-
+        public string From { get => _from; set => _from = value; }
+        public string To { get => _to; set => _to = value; }
+        public string Latitude { get => _latitude; set => _latitude = value; }
+        public string Longitude { get => _longitude; set => _longitude = value; }
     }
 }

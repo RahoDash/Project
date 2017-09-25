@@ -10,18 +10,25 @@ using System.Windows.Forms;
 
 namespace meteogramme
 {
-    public partial class vue : Form
+    public partial class Vue : Form
     {
-        meteo meteo = new meteo();
-        public vue()
+        //Meteo meteo = new Meteo();
+        DownloadDATA DL; //= new DownloadDATA(txtLat.Text, txtLon.Text);
+
+        public Vue()
         {
             InitializeComponent();
-            label1.Text = meteo.showMeteo();
+            //label1.Text = meteo.showMeteo();
         }
 
-        private void vue_Load(object sender, EventArgs e)
+        private void Vue_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            DL = new DownloadDATA(txtLat.Text, txtLon.Text);
         }
     }
 }
