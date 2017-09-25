@@ -1,0 +1,10 @@
+C:\Users\RahoDash\Desktop\Projet\Project\DownloadScanFromList\DownloadScanFromList\bin\Debug\DownloadScanFromList.exe.config
+C:\Users\RahoDash\Desktop\Projet\Project\DownloadScanFromList\DownloadScanFromList\bin\Debug\DownloadScanFromList.exe
+C:\Users\RahoDash\Desktop\Projet\Project\DownloadScanFromList\DownloadScanFromList\bin\Debug\DownloadScanFromList.pdb
+C:\Users\RahoDash\Desktop\Projet\Project\DownloadScanFromList\DownloadScanFromList\obj\Debug\DownloadScanFromList.csprojResolveAssemblyReference.cache
+C:\Users\RahoDash\Desktop\Projet\Project\DownloadScanFromList\DownloadScanFromList\obj\Debug\DownloadScanFromList.Form1.resources
+C:\Users\RahoDash\Desktop\Projet\Project\DownloadScanFromList\DownloadScanFromList\obj\Debug\DownloadScanFromList.Properties.Resources.resources
+C:\Users\RahoDash\Desktop\Projet\Project\DownloadScanFromList\DownloadScanFromList\obj\Debug\DownloadScanFromList.csproj.GenerateResource.Cache
+C:\Users\RahoDash\Desktop\Projet\Project\DownloadScanFromList\DownloadScanFromList\obj\Debug\DownloadScanFromList.csproj.CoreCompileInputs.cache
+C:\Users\RahoDash\Desktop\Projet\Project\DownloadScanFromList\DownloadScanFromList\obj\Debug\DownloadScanFromList.exe
+C:\Users\RahoDash\Desktop\Projet\Project\DownloadScanFromList\DownloadScanFromList\obj\Debug\DownloadScanFromList.pdb
