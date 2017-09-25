@@ -4,3 +4,10 @@ C:\Users\SILKAB_INFO\Desktop\gitrepos\OperatorsPuzzle222_6\OperatorsPuzzle222_6\
 C:\Users\SILKAB_INFO\Desktop\gitrepos\OperatorsPuzzle222_6\OperatorsPuzzle222_6\obj\Debug\OperatorsPuzzle222_6.csprojResolveAssemblyReference.cache
 C:\Users\SILKAB_INFO\Desktop\gitrepos\OperatorsPuzzle222_6\OperatorsPuzzle222_6\obj\Debug\OperatorsPuzzle222_6.exe
 C:\Users\SILKAB_INFO\Desktop\gitrepos\OperatorsPuzzle222_6\OperatorsPuzzle222_6\obj\Debug\OperatorsPuzzle222_6.pdb
+C:\Users\RahoDash\Desktop\Projet\Project\OperatorsPuzzle222_6\OperatorsPuzzle222_6\bin\Debug\OperatorsPuzzle222_6.exe.config
+C:\Users\RahoDash\Desktop\Projet\Project\OperatorsPuzzle222_6\OperatorsPuzzle222_6\bin\Debug\OperatorsPuzzle222_6.exe
+C:\Users\RahoDash\Desktop\Projet\Project\OperatorsPuzzle222_6\OperatorsPuzzle222_6\bin\Debug\OperatorsPuzzle222_6.pdb
+C:\Users\RahoDash\Desktop\Projet\Project\OperatorsPuzzle222_6\OperatorsPuzzle222_6\obj\Debug\OperatorsPuzzle222_6.csprojResolveAssemblyReference.cache
+C:\Users\RahoDash\Desktop\Projet\Project\OperatorsPuzzle222_6\OperatorsPuzzle222_6\obj\Debug\OperatorsPuzzle222_6.csproj.CoreCompileInputs.cache
+C:\Users\RahoDash\Desktop\Projet\Project\OperatorsPuzzle222_6\OperatorsPuzzle222_6\obj\Debug\OperatorsPuzzle222_6.exe
+C:\Users\RahoDash\Desktop\Projet\Project\OperatorsPuzzle222_6\OperatorsPuzzle222_6\obj\Debug\OperatorsPuzzle222_6.pdb
