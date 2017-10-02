@@ -5,6 +5,7 @@
  * Version  :   4.0, 18.09.2017, B.SILKA  
  ***/
 
+using Ex3GUIFraction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +22,15 @@ namespace Fractions
         private const int DIVIDED_BY_ZERO = 0;
         private const int REVERSE_SIGN = -1;
         private const int INIT_VAR = 0;
-        private readonly static DisplayDelegate DEFAULT_DISPLAY = Show;
-        //private const BeautifierInterface DEFAULT_HELPER
+        private const int DEFAULT_MULTIPLIER = 10;
+        private readonly static BeautifierInterface DEFAULT_DISPLAY = new BeautifierInterfaceNormale();
 
         #region fields
         //Variable
         private int _numerator;
         private int _denominator;
-        private DisplayDelegate Dis;
+        private BeautifierInterface Dis;
+        private int multiplier = 1;
         #endregion
 
         #region properties
@@ -53,10 +55,21 @@ namespace Fractions
         #endregion
 
         #region constructors
-        public Fraction() : this(DEFAULT_NOMINATOR, DEFAULT_DENOMINATOR){}
+        public Fraction() : this(DEFAULT_NOMINATOR) {}
         public Fraction(int num) : this(num, DEFAULT_DENOMINATOR){}
 
-        public Fraction(int num, int den) : this(num, den, DEFAULT_DISPLAY){}
+        public Fraction(decimal num) {
+            while (num%1!=0)
+            {
+                multiplier *= DEFAULT_MULTIPLIER;
+                num *= DEFAULT_MULTIPLIER;
+            }
+            Numerator = Convert.ToInt32(num);
+            Denominator = multiplier;
+            Dis = DEFAULT_DISPLAY;
+        }
+
+        public Fraction(int num, int den) : this(num, den, DEFAULT_DISPLAY) {}
 
         /// <summary>
         /// constructor designed
@@ -64,30 +77,23 @@ namespace Fractions
         /// <param name="num">numerator</param>
         /// <param name="den">denominator</param>
         /// <param name="helper">Interface display</param>
-        public Fraction(int num, int den, DisplayDelegate dis)
+        public Fraction(int num, int den, BeautifierInterface dis)
         {
             Numerator = num;
             Denominator = den;
             Dis = dis;
-            Reduce();
         }
         #endregion
 
         #region methods
-
-        static string Show(int a, int b)
-        {
-            return $"({a}) / ({b})";
-        }
-
-
         /// <summary>
         /// Override the methode toString, spell the fraction designed
         /// </summary>
         /// <returns>string of the fraction</returns>
         public override string ToString()
         {
-            return Dis(Numerator, Denominator);
+            Reduce();
+            return Dis.Display(Numerator, Denominator);
 
             //return Helper.Display(Numerator, Denominator); //this.Numerator + " / " + this.Denominator;
         }
@@ -113,9 +119,18 @@ namespace Fractions
             int resNum = (Numerator * f.Denominator) + (f.Numerator * Denominator);
             int resDen = f.Denominator * Denominator;
 
-            Numerator = resNum;
-            Denominator = resDen;
-            return this;
+            return new Fraction(resNum, resDen);
+        }
+
+        public Fraction Sub(Fraction f)
+        {
+            reverseIfNeeded(this);
+            reverseIfNeeded(f);
+
+            int resNum = (Numerator * f.Denominator) - (f.Numerator * Denominator);
+            int resDen = f.Denominator * Denominator;
+
+            return new Fraction(resNum, resDen);
         }
 
         /// <summary>

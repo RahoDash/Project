@@ -12,8 +12,14 @@ namespace meteogramme
         private string _latitude;
         private string _longitude;
 
+        //private string[,] details = 
+
+        
+
         public Meteo(string form, string to, string lat, string lon)
         {
+            DownloadDATA download = new DownloadDATA(lat, lon);
+
             throw new System.NotImplementedException();
         }
 

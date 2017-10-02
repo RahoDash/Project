@@ -16,3 +16,4 @@ C:\Users\SILKAB_INFO\Desktop\gitrepos\meteogramme\meteogramme\meteogramme\bin\De
 C:\Users\SILKAB_INFO\Desktop\gitrepos\meteogramme\meteogramme\meteogramme\bin\Debug\meteogramme.exe
 C:\Users\SILKAB_INFO\Desktop\gitrepos\meteogramme\meteogramme\meteogramme\bin\Debug\meteogramme.pdb
 C:\Users\SILKAB_INFO\Desktop\gitrepos\meteogramme\meteogramme\meteogramme\obj\Debug\meteogramme.csprojResolveAssemblyReference.cache
+C:\Users\SILKAB_INFO\Desktop\gitrepos\meteogramme\meteogramme\meteogramme\obj\Debug\meteogramme.csproj.CoreCompileInputs.cache

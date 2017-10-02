@@ -14,11 +14,13 @@ namespace meteogramme
         /// </summary>
         private string _latitude;
         private string _longitude;
-        private string _url;
         /// <summary>
         /// This will be the url to access the data we need.
         /// </summary>
         private const string DEFAULT_URL = "http://api.met.no/weatherapi/locationforecast/1.9/?";
+
+        Temperature temperature;
+        Precipitation precipitation;
 
         /// <summary>
         /// Encapsulation of fields
@@ -36,40 +38,84 @@ namespace meteogramme
         {
             Latitude = lat;
             Longitude = lon;
+            temperature = new Temperature();
+            precipitation = new Precipitation();
             //throw new System.NotImplementedException();
-
-            if (CanRequest(Url))
-            {
-                Downlaod();
-            }
+            Downlaod();
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public XmlReader Downlaod()
+        public void Downlaod()
         {
-            try
+            if (CanRequest(Url))
             {
-                //string attribute = "";
-                using (XmlReader reader = XmlReader.Create(Url))
+                try
                 {
-                    while (reader.Read())
+                    //string attribute = "";           
+                    using (XmlReader reader = XmlReader.Create(Url))
                     {
-                        while (reader.MoveToNextAttribute())
+                        while (reader.Read())
                         {
-                            Console.WriteLine("Name = {0}; Value = {1} ", reader.Name, reader.Value);
+                            switch (reader.Name)
+                            {
+                                case "temperature":
+                                    reader.MoveToAttribute("value");
+                                    temperature.Temp.Add(reader.Value);
+                                    break;
+                                case "minTemperature":
+                                    reader.MoveToAttribute("value");
+                                    temperature.TempMin.Add(reader.Value);
+                                    break;
+                                case "maxTemperature":
+                                    reader.MoveToAttribute("value");
+                                    temperature.TempMax.Add(reader.Value);
+                                    break;
+                                case "precipitation":
+                                    //reader.MoveToAttribute("value");
+                                    
+                                    //reader.
+                                    //reader.MoveToAttribute("minvalue");
+                                    //precipitation.ValueMin.Add(reader.Value);
+                                    //reader.MoveToAttribute("maxvalue");
+                                    //precipitation.ValueMax.Add(reader.Value);
+
+                                    while (reader.MoveToNextAttribute())
+                                    {
+                                        switch (reader.Name)
+                                        {
+                                            case "value":
+                                                precipitation.Value.Add(reader.Value);
+                                                break;
+                                            case "minvalue":
+                                                precipitation.ValueMin.Add(reader.Value);
+                                                break;
+                                            case "maxvalue":
+                                                precipitation.ValueMax.Add(reader.Value);
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                    }
+                                    break;
+                                case "symbol":
+                                    reader.MoveToAttribute("number");
+                                    precipitation.Id.Add(reader.Value);
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                     }
-                    return reader;
+
+                }
+                catch (Exception)
+                {
+                    throw;
                 }
             }
-            catch (Exception)
-            {
-                throw;
-            }
-            throw new System.NotImplementedException();
         }
 
         private bool CanRequest(string url)
@@ -88,15 +134,12 @@ namespace meteogramme
                 return result;
             }
 
-
             // Check that the remote file was found. The ContentType
             // check is performed since a request for a non-existent
             // image file might be redirected to a 404-page, which would
             // yield the StatusCode "OK", even though the image was not
             // found.
-            if ((response.StatusCode == HttpStatusCode.OK ||
-                response.StatusCode == HttpStatusCode.Moved ||
-                response.StatusCode == HttpStatusCode.Redirect))
+            if ((response.StatusCode == HttpStatusCode.OK))
             {
                 result = true;
             }

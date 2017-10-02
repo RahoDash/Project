@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txbFrac1Num = new System.Windows.Forms.TextBox();
-            this.txbFrac1Den = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txbFrac1Den = new System.Windows.Forms.TextBox();
+            this.txbFrac1Num = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txbFrac2Den = new System.Windows.Forms.TextBox();
@@ -41,8 +41,8 @@
             this.txbFrac3Den = new System.Windows.Forms.TextBox();
             this.txbFrac3Num = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txbFrac4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txbFrac4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblResult1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -74,20 +74,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "frac1";
             // 
-            // txbFrac1Num
-            // 
-            this.txbFrac1Num.Location = new System.Drawing.Point(24, 19);
-            this.txbFrac1Num.Name = "txbFrac1Num";
-            this.txbFrac1Num.Size = new System.Drawing.Size(100, 20);
-            this.txbFrac1Num.TabIndex = 0;
-            // 
-            // txbFrac1Den
-            // 
-            this.txbFrac1Den.Location = new System.Drawing.Point(24, 59);
-            this.txbFrac1Den.Name = "txbFrac1Den";
-            this.txbFrac1Den.Size = new System.Drawing.Size(100, 20);
-            this.txbFrac1Den.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -96,6 +82,22 @@
             this.label1.Size = new System.Drawing.Size(120, 2);
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
+            // 
+            // txbFrac1Den
+            // 
+            this.txbFrac1Den.Location = new System.Drawing.Point(24, 59);
+            this.txbFrac1Den.Name = "txbFrac1Den";
+            this.txbFrac1Den.Size = new System.Drawing.Size(100, 20);
+            this.txbFrac1Den.TabIndex = 1;
+            this.txbFrac1Den.Text = "135";
+            // 
+            // txbFrac1Num
+            // 
+            this.txbFrac1Num.Location = new System.Drawing.Point(24, 19);
+            this.txbFrac1Num.Name = "txbFrac1Num";
+            this.txbFrac1Num.Size = new System.Drawing.Size(100, 20);
+            this.txbFrac1Num.TabIndex = 0;
+            this.txbFrac1Num.Text = "45";
             // 
             // groupBox2
             // 
@@ -124,6 +126,7 @@
             this.txbFrac2Den.Name = "txbFrac2Den";
             this.txbFrac2Den.Size = new System.Drawing.Size(100, 20);
             this.txbFrac2Den.TabIndex = 1;
+            this.txbFrac2Den.Text = "28";
             // 
             // txbFrac2Num
             // 
@@ -131,6 +134,7 @@
             this.txbFrac2Num.Name = "txbFrac2Num";
             this.txbFrac2Num.Size = new System.Drawing.Size(100, 20);
             this.txbFrac2Num.TabIndex = 0;
+            this.txbFrac2Num.Text = "5";
             // 
             // groupBox3
             // 
@@ -159,6 +163,7 @@
             this.txbFrac3Den.Name = "txbFrac3Den";
             this.txbFrac3Den.Size = new System.Drawing.Size(100, 20);
             this.txbFrac3Den.TabIndex = 1;
+            this.txbFrac3Den.Text = "561";
             // 
             // txbFrac3Num
             // 
@@ -166,6 +171,7 @@
             this.txbFrac3Num.Name = "txbFrac3Num";
             this.txbFrac3Num.Size = new System.Drawing.Size(100, 20);
             this.txbFrac3Num.TabIndex = 0;
+            this.txbFrac3Num.Text = "357";
             // 
             // groupBox4
             // 
@@ -178,13 +184,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "frac4";
             // 
-            // txbFrac4
-            // 
-            this.txbFrac4.Location = new System.Drawing.Point(24, 59);
-            this.txbFrac4.Name = "txbFrac4";
-            this.txbFrac4.Size = new System.Drawing.Size(100, 20);
-            this.txbFrac4.TabIndex = 1;
-            // 
             // label4
             // 
             this.label4.Location = new System.Drawing.Point(6, 19);
@@ -193,6 +192,15 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Fraction générée à partir d\'un nombre réel";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txbFrac4
+            // 
+            this.txbFrac4.Location = new System.Drawing.Point(24, 59);
+            this.txbFrac4.MaxLength = 6;
+            this.txbFrac4.Name = "txbFrac4";
+            this.txbFrac4.Size = new System.Drawing.Size(100, 20);
+            this.txbFrac4.TabIndex = 1;
+            this.txbFrac4.Text = "3.125";
             // 
             // label5
             // 
@@ -207,7 +215,7 @@
             // 
             this.lblResult1.Location = new System.Drawing.Point(259, 129);
             this.lblResult1.Name = "lblResult1";
-            this.lblResult1.Size = new System.Drawing.Size(241, 30);
+            this.lblResult1.Size = new System.Drawing.Size(370, 30);
             this.lblResult1.TabIndex = 5;
             this.lblResult1.Text = "label6";
             this.lblResult1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -261,7 +269,7 @@
             // 
             this.lblResult2.Location = new System.Drawing.Point(259, 159);
             this.lblResult2.Name = "lblResult2";
-            this.lblResult2.Size = new System.Drawing.Size(241, 30);
+            this.lblResult2.Size = new System.Drawing.Size(370, 30);
             this.lblResult2.TabIndex = 11;
             this.lblResult2.Text = "label12";
             this.lblResult2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -270,7 +278,7 @@
             // 
             this.lblResult3.Location = new System.Drawing.Point(259, 189);
             this.lblResult3.Name = "lblResult3";
-            this.lblResult3.Size = new System.Drawing.Size(241, 30);
+            this.lblResult3.Size = new System.Drawing.Size(370, 30);
             this.lblResult3.TabIndex = 12;
             this.lblResult3.Text = "label13";
             this.lblResult3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -279,7 +287,7 @@
             // 
             this.lblResult4.Location = new System.Drawing.Point(259, 219);
             this.lblResult4.Name = "lblResult4";
-            this.lblResult4.Size = new System.Drawing.Size(241, 30);
+            this.lblResult4.Size = new System.Drawing.Size(370, 30);
             this.lblResult4.TabIndex = 13;
             this.lblResult4.Text = "label14";
             this.lblResult4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -288,7 +296,7 @@
             // 
             this.lblResult5.Location = new System.Drawing.Point(259, 249);
             this.lblResult5.Name = "lblResult5";
-            this.lblResult5.Size = new System.Drawing.Size(241, 30);
+            this.lblResult5.Size = new System.Drawing.Size(370, 30);
             this.lblResult5.TabIndex = 14;
             this.lblResult5.Text = "label15";
             this.lblResult5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -297,7 +305,7 @@
             // 
             this.lblResult6.Location = new System.Drawing.Point(259, 279);
             this.lblResult6.Name = "lblResult6";
-            this.lblResult6.Size = new System.Drawing.Size(241, 30);
+            this.lblResult6.Size = new System.Drawing.Size(370, 30);
             this.lblResult6.TabIndex = 15;
             this.lblResult6.Text = "label16";
             this.lblResult6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -310,6 +318,7 @@
             this.BtnCalcul.TabIndex = 16;
             this.BtnCalcul.Text = "Calculer";
             this.BtnCalcul.UseVisualStyleBackColor = true;
+            this.BtnCalcul.Click += new System.EventHandler(this.BtnCalcul_Click);
             // 
             // FractionPoo
             // 

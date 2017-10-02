@@ -19,20 +19,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
-  <Class Name="meteogramme.DownloadDATA">
-    <Position X="6.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAEAAAAAAAIAIAAAAAAAAAAAAAABAEAAAEAA=</HashCode>
-      <FileName>DownloadDATA.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="meteogramme.Meteo">
-    <Position X="4.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AgAAAAAAAEAAAAAAAIAIAAAAAgAIAAAAAAAAACAAEAA=</HashCode>
-      <FileName>Meteo.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="meteogramme.Temperature">
     <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -45,6 +31,20 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAACAAAAAAI=</HashCode>
       <FileName>Precipitation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="meteogramme.Meteo">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAEAAAAAAAIAIAAAAAgAIAAAAAAAAACAAEAA=</HashCode>
+      <FileName>Meteo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="meteogramme.DownloadDATA">
+    <Position X="5.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAICIAAAAAAAAAAAACABAEAAAEAA=</HashCode>
+      <FileName>DownloadDATA.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

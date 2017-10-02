@@ -7,15 +7,19 @@ namespace meteogramme
 {
     public class Precipitation
     {
-        private string _unit;
-        private int _numSymbole;
+        public List<string> Symbole { get; set; }
+        public List<string> Id { get; set; }
+        public List<string> Value { get; set; }
+        public List<string> ValueMax { get; set; }
+        public List<string> ValueMin { get; set; }
 
-        public Precipitation(string unit, int numSymbole)
+        public Precipitation()
         {
-            throw new System.NotImplementedException();
+            Symbole = new List<string>();
+            Id = new List<string>();
+            Value= new List<string>();
+            ValueMax = new List<string>();
+            ValueMin = new List<string>();
         }
-
-        public string Unit { get => _unit; set => _unit = value; }
-        public int NumSymbole { get => _numSymbole; set => _numSymbole = value; }
     }
 }
