@@ -1,4 +1,11 @@
-﻿using System;
+﻿/***
+ * Name     :   UppercaseDelegate
+ * Author   :   B.Silka
+ * Desc.    :   Delegate methode of uppercase for strings
+ * Version  :   5.0, 3.10.2017, B.SILKA  
+ ***/
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -19,27 +26,18 @@ namespace UppercaseDelegate
 
         static void Main()
         {
-
-            //UppercaseDelegate UppercaseFirst = upper => upper.First().ToString().ToUpper() + String.Join("",upper.Skip(1));
             // Wrap the methods inside delegate instances and pass to the method.
-            UppercaseDelegate UppercaseFirst = a => a.Replace(a[0], (char)(a[0] - 0x20));
-            UppercaseDelegate uppercaseFirst = new UppercaseDelegate(UppercaseFirst);
+            UppercaseDelegate uppercaseFirst = new UppercaseDelegate(uppercaseFirst = a => a.Replace(a[0], (char)(a[0] - 0x20)));
             Console.WriteLine(" With delegate \" UppercaseFirst \"");
-            WriteOutput("perls", UppercaseFirst);
+            WriteOutput("perls", uppercaseFirst);
 
-            //UppercaseDelegate UppercaseLast = upper => String.Join("", upper.Skip(upper.Length - 1)) + upper.Last().ToString().ToUpper();
-            UppercaseDelegate UppercaseLast = a => a.Replace(a[a.Length - 1], (char)(a[a.Length - 1] - 0x20));
-            UppercaseDelegate uppercaseLast = new UppercaseDelegate(UppercaseLast);
+            UppercaseDelegate uppercaseLast = new UppercaseDelegate(uppercaseLast = a => a.Replace(a[a.Length - 1], (char)(a[a.Length - 1] - 0x20)));
             Console.WriteLine(" nWith delegate \" UppercaseLast \"");
-            WriteOutput("perls", UppercaseLast);
+            WriteOutput("perls", uppercaseLast);
 
-
-            //UppercaseDelegate Uppercase = upper => upper.ToUpper();
-            UppercaseDelegate Uppercase = a => a.ToUpper();
-            UppercaseDelegate uppercase = new UppercaseDelegate(Uppercase);
+            UppercaseDelegate uppercase = new UppercaseDelegate(uppercase = a => a.ToUpper());
             Console.WriteLine(" nWith an anonymous method which put all characters uppercase ");
-            WriteOutput("perls", new UppercaseDelegate(Uppercase));
-
+            WriteOutput("perls", new UppercaseDelegate(uppercase));
 
             Stopwatch stopWatch1 = new Stopwatch();
             stopWatch1.Start();

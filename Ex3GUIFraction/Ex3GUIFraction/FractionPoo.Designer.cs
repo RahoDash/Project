@@ -86,18 +86,22 @@
             // txbFrac1Den
             // 
             this.txbFrac1Den.Location = new System.Drawing.Point(24, 59);
+            this.txbFrac1Den.MaxLength = 6;
             this.txbFrac1Den.Name = "txbFrac1Den";
             this.txbFrac1Den.Size = new System.Drawing.Size(100, 20);
             this.txbFrac1Den.TabIndex = 1;
             this.txbFrac1Den.Text = "135";
+            this.txbFrac1Den.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
             // 
             // txbFrac1Num
             // 
             this.txbFrac1Num.Location = new System.Drawing.Point(24, 19);
+            this.txbFrac1Num.MaxLength = 6;
             this.txbFrac1Num.Name = "txbFrac1Num";
             this.txbFrac1Num.Size = new System.Drawing.Size(100, 20);
             this.txbFrac1Num.TabIndex = 0;
             this.txbFrac1Num.Text = "45";
+            this.txbFrac1Num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
             // 
             // groupBox2
             // 
@@ -123,18 +127,22 @@
             // txbFrac2Den
             // 
             this.txbFrac2Den.Location = new System.Drawing.Point(23, 59);
+            this.txbFrac2Den.MaxLength = 6;
             this.txbFrac2Den.Name = "txbFrac2Den";
             this.txbFrac2Den.Size = new System.Drawing.Size(100, 20);
             this.txbFrac2Den.TabIndex = 1;
             this.txbFrac2Den.Text = "28";
+            this.txbFrac2Den.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
             // 
             // txbFrac2Num
             // 
             this.txbFrac2Num.Location = new System.Drawing.Point(24, 19);
+            this.txbFrac2Num.MaxLength = 6;
             this.txbFrac2Num.Name = "txbFrac2Num";
             this.txbFrac2Num.Size = new System.Drawing.Size(100, 20);
             this.txbFrac2Num.TabIndex = 0;
             this.txbFrac2Num.Text = "5";
+            this.txbFrac2Num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
             // 
             // groupBox3
             // 
@@ -160,18 +168,22 @@
             // txbFrac3Den
             // 
             this.txbFrac3Den.Location = new System.Drawing.Point(24, 59);
+            this.txbFrac3Den.MaxLength = 6;
             this.txbFrac3Den.Name = "txbFrac3Den";
             this.txbFrac3Den.Size = new System.Drawing.Size(100, 20);
             this.txbFrac3Den.TabIndex = 1;
             this.txbFrac3Den.Text = "561";
+            this.txbFrac3Den.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
             // 
             // txbFrac3Num
             // 
             this.txbFrac3Num.Location = new System.Drawing.Point(24, 19);
+            this.txbFrac3Num.MaxLength = 6;
             this.txbFrac3Num.Name = "txbFrac3Num";
             this.txbFrac3Num.Size = new System.Drawing.Size(100, 20);
             this.txbFrac3Num.TabIndex = 0;
             this.txbFrac3Num.Text = "357";
+            this.txbFrac3Num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress);
             // 
             // groupBox4
             // 
@@ -201,6 +213,7 @@
             this.txbFrac4.Size = new System.Drawing.Size(100, 20);
             this.txbFrac4.TabIndex = 1;
             this.txbFrac4.Text = "3.125";
+            this.txbFrac4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPressForDecimal);
             // 
             // label5
             // 

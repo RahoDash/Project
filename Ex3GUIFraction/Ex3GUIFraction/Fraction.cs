@@ -1,8 +1,8 @@
 ﻿/***
- * Name  :   Fractions
+ * Name     :   Fractions
  * Author   :   B.Silka
  * Desc.    :   Model class of Fractions
- * Version  :   4.0, 18.09.2017, B.SILKA  
+ * Version  :   5.0, 3.10.2017, B.SILKA  
  ***/
 
 using Ex3GUIFraction;
@@ -29,7 +29,7 @@ namespace Fractions
         //Variable
         private int _numerator;
         private int _denominator;
-        private BeautifierInterface Dis;
+        private BeautifierInterface Displayer;
         private int multiplier = 1;
         #endregion
 
@@ -58,6 +58,10 @@ namespace Fractions
         public Fraction() : this(DEFAULT_NOMINATOR) {}
         public Fraction(int num) : this(num, DEFAULT_DENOMINATOR){}
 
+        /// <summary>
+        /// constructor for deciaml number
+        /// </summary>
+        /// <param name="num"></param>
         public Fraction(decimal num) {
             while (num%1!=0)
             {
@@ -66,7 +70,7 @@ namespace Fractions
             }
             Numerator = Convert.ToInt32(num);
             Denominator = multiplier;
-            Dis = DEFAULT_DISPLAY;
+            Displayer = DEFAULT_DISPLAY;
         }
 
         public Fraction(int num, int den) : this(num, den, DEFAULT_DISPLAY) {}
@@ -77,11 +81,11 @@ namespace Fractions
         /// <param name="num">numerator</param>
         /// <param name="den">denominator</param>
         /// <param name="helper">Interface display</param>
-        public Fraction(int num, int den, BeautifierInterface dis)
+        public Fraction(int num, int den, BeautifierInterface displayer)
         {
             Numerator = num;
             Denominator = den;
-            Dis = dis;
+            Displayer = displayer;
         }
         #endregion
 
@@ -93,9 +97,7 @@ namespace Fractions
         public override string ToString()
         {
             Reduce();
-            return Dis.Display(Numerator, Denominator);
-
-            //return Helper.Display(Numerator, Denominator); //this.Numerator + " / " + this.Denominator;
+            return Displayer.Display(Numerator, Denominator);
         }
         /// <summary>
         /// Result of the fraction in Float
@@ -122,6 +124,11 @@ namespace Fractions
             return new Fraction(resNum, resDen);
         }
 
+        /// <summary>
+        /// Substraction 2 fraction 
+        /// </summary>
+        /// <param name="f">Fraction to substract</param>
+        /// <returns>the result of the fraction</returns>
         public Fraction Sub(Fraction f)
         {
             reverseIfNeeded(this);

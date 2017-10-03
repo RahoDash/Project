@@ -1,4 +1,11 @@
-﻿using System;
+﻿/***
+ * Name     :   Fractions
+ * Author   :   B.Silka
+ * Desc.    :   Fractions Interface model
+ * Version  :   2.0, 3.10.2017, B.SILKA  
+ ***/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
