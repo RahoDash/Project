@@ -24,14 +24,17 @@ namespace UppercaseDelegate
             Console.WriteLine(" Your string after : {0}", upper.Invoke(input));
         }
 
-        static void Main()
+        unsafe static void Main()
         {
             // Wrap the methods inside delegate instances and pass to the method.
             UppercaseDelegate uppercaseFirst = new UppercaseDelegate(uppercaseFirst = a => a.Replace(a[0], (char)(a[0] - 0x20)));
             Console.WriteLine(" With delegate \" UppercaseFirst \"");
             WriteOutput("perls", uppercaseFirst);
 
-            UppercaseDelegate uppercaseLast = new UppercaseDelegate(uppercaseLast = a => a.Replace(a[a.Length - 1], (char)(a[a.Length - 1] - 0x20)));
+            //UppercaseDelegate uppercaseLast = new UppercaseDelegate(uppercaseLast = a => a.Replace(a[a.Length - 1], (char)(a[a.Length - 1] & 0xDF)));
+            //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/how-to-modify-string-contents
+            UppercaseDelegate uppercaseLast = new UppercaseDelegate(uppercaseLast = a => { fixed (char* p = a) { p[a.Length - 1] &= (char)0xDF; } return a; });
+
             Console.WriteLine(" nWith delegate \" UppercaseLast \"");
             WriteOutput("perls", uppercaseLast);
 
