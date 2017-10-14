@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Download_scan
@@ -39,14 +36,14 @@ namespace Download_scan
             return result;
         }
 
-        public void DownloadTheImage(string uri, string fileName)
+        public async Task DownloadTheImage(string uri, string fileName)
         {
             Uri url = new Uri(uri);
             try
             {
                 using (WebClient client = new WebClient())
                 {
-                    client.DownloadFileAsync(url, fileName);
+                    await client.DownloadFileTaskAsync(url, fileName);
                     client.Dispose();
                 }
             }
@@ -54,7 +51,6 @@ namespace Download_scan
             {
                 throw e;
             }
-
         }
 
     }

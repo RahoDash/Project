@@ -1,12 +1,7 @@
 ﻿using Download_scan;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,9 +23,9 @@ namespace DownloadScanFromList
 
         }
 
-        private void btnDlAll_Click(object sender, EventArgs e)
+        private async void btnDlAll_Click(object sender, EventArgs e)
         {
-            comic.DownloadAll(lstbTitle.SelectedItem.ToString(), path +"\\"+lstbTitle.SelectedItem.ToString());
+            await comic.DownloadAll(lstbTitle.SelectedItem.ToString(), path +"\\"+lstbTitle.SelectedItem.ToString());
             //I.init();
             MessageBox.Show("Done !");
         }
@@ -51,6 +46,10 @@ namespace DownloadScanFromList
         private void Form1_Load(object sender, EventArgs e)
         {
             //lstbTitle.Items.Add(File.ReadAllLines(@"..\..\Comics\list-comics.txt"));
+            if (File.Exists(@"..\..\Comics\list-comics.txt"))
+            {
+                //I.init();
+            }
 
             using (StreamReader reader = File.OpenText(@"..\..\Comics\list-comics.txt"))
             {
@@ -99,12 +98,12 @@ namespace DownloadScanFromList
             }
         }
 
-        private void BtnDlCh_Click(object sender, EventArgs e)
+        private async void BtnDlCh_Click(object sender, EventArgs e)
         {
             string saveFile = path + "\\" + lstbTitle.SelectedItem.ToString();
             if (cmbChapter.SelectedIndex>-1)
             {
-                ch.DownloadChapter(lstbTitle.SelectedItem.ToString(), cmbChapter.SelectedItem.ToString(), saveFile + "\\" + cmbChapter.SelectedItem.ToString());
+                await ch.DownloadChapter(lstbTitle.SelectedItem.ToString(), cmbChapter.SelectedItem.ToString(), saveFile + "\\" + cmbChapter.SelectedItem.ToString());
             }
         }
     }
