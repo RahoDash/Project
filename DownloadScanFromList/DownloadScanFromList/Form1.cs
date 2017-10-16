@@ -2,12 +2,16 @@
 using System;
 using System.Collections.Generic;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+=======
+using System.IO;
+>>>>>>> master
 =======
 using System.IO;
 >>>>>>> master
@@ -33,9 +37,15 @@ namespace DownloadScanFromList
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         private void btnDlAll_Click(object sender, EventArgs e)
         {
             comic.DownloadAll(lstbTitle.SelectedItem.ToString(), path +"\\"+lstbTitle.SelectedItem.ToString());
+=======
+        private async void btnDlAll_Click(object sender, EventArgs e)
+        {
+            await comic.DownloadAll(lstbTitle.SelectedItem.ToString(), path +"\\"+lstbTitle.SelectedItem.ToString());
+>>>>>>> master
 =======
         private async void btnDlAll_Click(object sender, EventArgs e)
         {
@@ -62,11 +72,17 @@ namespace DownloadScanFromList
         {
             //lstbTitle.Items.Add(File.ReadAllLines(@"..\..\Comics\list-comics.txt"));
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> master
             if (File.Exists(@"..\..\Comics\list-comics.txt"))
             {
                 //I.init();
             }
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 
             using (StreamReader reader = File.OpenText(@"..\..\Comics\list-comics.txt"))
@@ -117,7 +133,11 @@ namespace DownloadScanFromList
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         private void BtnDlCh_Click(object sender, EventArgs e)
+=======
+        private async void BtnDlCh_Click(object sender, EventArgs e)
+>>>>>>> master
 =======
         private async void BtnDlCh_Click(object sender, EventArgs e)
 >>>>>>> master
@@ -126,7 +146,11 @@ namespace DownloadScanFromList
             if (cmbChapter.SelectedIndex>-1)
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ch.DownloadChapter(lstbTitle.SelectedItem.ToString(), cmbChapter.SelectedItem.ToString(), saveFile + "\\" + cmbChapter.SelectedItem.ToString());
+=======
+                await ch.DownloadChapter(lstbTitle.SelectedItem.ToString(), cmbChapter.SelectedItem.ToString(), saveFile + "\\" + cmbChapter.SelectedItem.ToString());
+>>>>>>> master
 =======
                 await ch.DownloadChapter(lstbTitle.SelectedItem.ToString(), cmbChapter.SelectedItem.ToString(), saveFile + "\\" + cmbChapter.SelectedItem.ToString());
 >>>>>>> master

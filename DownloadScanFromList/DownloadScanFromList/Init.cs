@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.IO;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+=======
+using System.Net;
+>>>>>>> master
 =======
 using System.Net;
 >>>>>>> master
@@ -29,7 +33,11 @@ namespace DownloadScanFromList
             fol.CreateNewFile(xmlExtractor(), "..\\..\\Comics\\list-comics.txt");
             
 <<<<<<< HEAD
+<<<<<<< HEAD
             string[] titles = File.ReadAllLines("..\\..\\Comics" + "\\list-comics.txt");
+=======
+            string[] titles = File.ReadAllLines("..\\..\\Comics\\list-comics.txt");
+>>>>>>> master
 =======
             string[] titles = File.ReadAllLines("..\\..\\Comics\\list-comics.txt");
 >>>>>>> master
@@ -177,10 +185,14 @@ namespace DownloadScanFromList
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 }
 
+=======
+}
+>>>>>>> master
 =======
 }
 >>>>>>> master

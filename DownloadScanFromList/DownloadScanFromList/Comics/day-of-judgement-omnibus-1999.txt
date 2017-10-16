@@ -1,5 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> master
 Day-of-Judgement-20
 Day-of-Judgement-19
 Day-of-Judgement-18
@@ -10,6 +13,9 @@ Day-of-Judgement-14
 Day-of-Judgement-13
 Day-of-Judgement-12
 Day-of-Judgement-11
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 Day-of-Judgement-10
 Day-of-Judgement-9
