@@ -1,16 +1,5 @@
 ﻿using System;
-<<<<<<< HEAD
-<<<<<<< HEAD
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-=======
-using System.Net;
->>>>>>> master
-=======
-using System.Net;
->>>>>>> master
 using System.Threading.Tasks;
 
 namespace Download_scan
@@ -47,30 +36,14 @@ namespace Download_scan
             return result;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        public void DownloadTheImage(string uri, string fileName)
-=======
         public async Task DownloadTheImage(string uri, string fileName)
->>>>>>> master
-=======
-        public async Task DownloadTheImage(string uri, string fileName)
->>>>>>> master
         {
             Uri url = new Uri(uri);
             try
             {
                 using (WebClient client = new WebClient())
                 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    client.DownloadFileAsync(url, fileName);
-=======
                     await client.DownloadFileTaskAsync(url, fileName);
->>>>>>> master
-=======
-                    await client.DownloadFileTaskAsync(url, fileName);
->>>>>>> master
                     client.Dispose();
                 }
             }
@@ -78,13 +51,6 @@ namespace Download_scan
             {
                 throw e;
             }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> master
-=======
->>>>>>> master
         }
 
     }
