@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+<<<<<<< HEAD
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+=======
+using System.Net;
+>>>>>>> master
 using System.Xml;
 
 namespace DownloadScanFromList
@@ -24,7 +28,11 @@ namespace DownloadScanFromList
 
             fol.CreateNewFile(xmlExtractor(), "..\\..\\Comics\\list-comics.txt");
             
+<<<<<<< HEAD
             string[] titles = File.ReadAllLines("..\\..\\Comics" + "\\list-comics.txt");
+=======
+            string[] titles = File.ReadAllLines("..\\..\\Comics\\list-comics.txt");
+>>>>>>> master
 
             foreach (var title in titles)
             {
@@ -168,7 +176,11 @@ namespace DownloadScanFromList
             return result;
         }
     }
+<<<<<<< HEAD
 
 
 }
 
+=======
+}
+>>>>>>> master

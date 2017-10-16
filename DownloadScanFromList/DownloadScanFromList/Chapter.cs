@@ -1,10 +1,14 @@
 ﻿using DownloadScanFromList;
 using System;
+<<<<<<< HEAD
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+=======
+using System.Threading.Tasks;
+>>>>>>> master
 
 namespace Download_scan
 {
@@ -33,7 +37,11 @@ namespace Download_scan
         /// </summary>
         /// <param name="url"></param>
         /// <param name="fileName"></param>
+<<<<<<< HEAD
         public void DownloadChapter(string title, string chapter, string fileName)
+=======
+        public async Task DownloadChapter(string title, string chapter, string fileName)
+>>>>>>> master
         {
             int page = 00;
             string path = "", completeURL, extetion = ".jpg", spage = Convert.ToString(page); spage.PadLeft(2, '0');
@@ -66,12 +74,19 @@ namespace Download_scan
                     }
                 }
                 path = fileName + "\\" + spage + extetion;
+<<<<<<< HEAD
                 dl.DownloadTheImage(completeURL, path);
 
             } while (dl.VerifieThePath(completeURL));
 
 
 
+=======
+                if (dl.VerifieThePath(completeURL))
+                    await dl.DownloadTheImage(completeURL, path);
+
+            } while (dl.VerifieThePath(completeURL));
+>>>>>>> master
         }
     }
 }

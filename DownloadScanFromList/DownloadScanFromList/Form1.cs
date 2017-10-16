@@ -1,12 +1,16 @@
 ﻿using Download_scan;
 using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+=======
+using System.IO;
+>>>>>>> master
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,9 +32,15 @@ namespace DownloadScanFromList
 
         }
 
+<<<<<<< HEAD
         private void btnDlAll_Click(object sender, EventArgs e)
         {
             comic.DownloadAll(lstbTitle.SelectedItem.ToString(), path +"\\"+lstbTitle.SelectedItem.ToString());
+=======
+        private async void btnDlAll_Click(object sender, EventArgs e)
+        {
+            await comic.DownloadAll(lstbTitle.SelectedItem.ToString(), path +"\\"+lstbTitle.SelectedItem.ToString());
+>>>>>>> master
             //I.init();
             MessageBox.Show("Done !");
         }
@@ -51,6 +61,13 @@ namespace DownloadScanFromList
         private void Form1_Load(object sender, EventArgs e)
         {
             //lstbTitle.Items.Add(File.ReadAllLines(@"..\..\Comics\list-comics.txt"));
+<<<<<<< HEAD
+=======
+            if (File.Exists(@"..\..\Comics\list-comics.txt"))
+            {
+                //I.init();
+            }
+>>>>>>> master
 
             using (StreamReader reader = File.OpenText(@"..\..\Comics\list-comics.txt"))
             {
@@ -99,12 +116,20 @@ namespace DownloadScanFromList
             }
         }
 
+<<<<<<< HEAD
         private void BtnDlCh_Click(object sender, EventArgs e)
+=======
+        private async void BtnDlCh_Click(object sender, EventArgs e)
+>>>>>>> master
         {
             string saveFile = path + "\\" + lstbTitle.SelectedItem.ToString();
             if (cmbChapter.SelectedIndex>-1)
             {
+<<<<<<< HEAD
                 ch.DownloadChapter(lstbTitle.SelectedItem.ToString(), cmbChapter.SelectedItem.ToString(), saveFile + "\\" + cmbChapter.SelectedItem.ToString());
+=======
+                await ch.DownloadChapter(lstbTitle.SelectedItem.ToString(), cmbChapter.SelectedItem.ToString(), saveFile + "\\" + cmbChapter.SelectedItem.ToString());
+>>>>>>> master
             }
         }
     }

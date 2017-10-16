@@ -1,4 +1,5 @@
 ﻿using DownloadScanFromList;
+<<<<<<< HEAD
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+=======
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+>>>>>>> master
 
 namespace Download_scan
 {
@@ -15,7 +21,10 @@ namespace Download_scan
         Chapter ch;
         Folder fl;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
         public Comic()
         {
             dl = new Download();
@@ -23,7 +32,11 @@ namespace Download_scan
             fl = new Folder();
         }
 
+<<<<<<< HEAD
         public void DownloadAll(string title, string fileName)
+=======
+        public async Task DownloadAll(string title, string fileName)
+>>>>>>> master
         {
             //string folder = fileName + @"\" + ch.GetTheChapterName(url);
 
@@ -36,7 +49,11 @@ namespace Download_scan
 
             foreach (var chap in chapter)
             {
+<<<<<<< HEAD
                 ch.DownloadChapter(title, chap, fileName +"\\"+ chap);
+=======
+                await ch.DownloadChapter(title, chap, fileName +"\\"+ chap);
+>>>>>>> master
             }
             //do
             //{
@@ -59,6 +76,7 @@ namespace Download_scan
             }
             return chapterList;
         }
+<<<<<<< HEAD
 
 
         //public string setNextChapter(string url)
@@ -88,5 +106,7 @@ namespace Download_scan
 
         //    return url;
         //}
+=======
+>>>>>>> master
     }
 }
