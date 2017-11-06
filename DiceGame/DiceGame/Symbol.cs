@@ -21,7 +21,7 @@ namespace DiceGame
 
         /// <summary>
         /// CTOR of Symbol
-        /// </summary>
+        /// </summary>.
         /// <param name="index"></param>
         public Symbol() : this(DEFAULT_SYMBOL){}
         public Symbol(string symb)

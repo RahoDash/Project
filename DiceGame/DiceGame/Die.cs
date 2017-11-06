@@ -8,15 +8,9 @@ namespace DiceGame
 {
     class Die
     {
-        //private readonly string[] DEFAULT_FACES = {"1", "2", "3", "4", "5", "6"};
-
-        
-
         public Die()
         {
 
         }
-
-
     }
 }
