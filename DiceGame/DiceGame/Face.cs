@@ -4,19 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiceGame
-{
-    class Face 
-    {
-        bool _onTop;
-        Symbol Symbol;
+namespace DiceGame {
+    public class Face {
+        private string _symbol;
 
-        public bool OnTop { get => _onTop; set => _onTop = value; }
+        public string Symbol { get => _symbol; set => _symbol = value; }
 
-        public Face(Symbol symbol, bool onTop)
-        {
-            Symbol = symbol;
-            OnTop = OnTop;
+        public Face(string symbol) {
+            this.Symbol = symbol;
         }
     }
 }
