@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/** 
+ * version 1.0
+ * CHAUCHE Benoit
+ * MENDEZ Gregory
+ * ROSSET Alexandre
+ * Date : 02.11.2017 16:06:35
+ * 
+ * Updated by SILKA Besmir
+ * version 2.0
+ * 07.11.2017
+ */
+
+using System;
 using System.Windows.Forms;
 
-namespace DiceGame {
+namespace DiceGame
+{
     public partial class DiceGameView : Form {
         private DiceGameController _controller;
         public DiceGameController Controller { get => _controller; set => _controller = value; }
@@ -16,7 +22,6 @@ namespace DiceGame {
         public DiceGameView() {
             InitializeComponent();
             Controller = new DiceGameController(this);
-            Controller.InitLabel();
         }
 
         private void btnInit_Click(object sender, EventArgs e)
@@ -28,7 +33,7 @@ namespace DiceGame {
 
         private void btnRoll_Click(object sender, EventArgs e)
         {
-            Controller.RollDices();
+            Controller.RollDice();
             Controller.ShowResult();
         }
     }

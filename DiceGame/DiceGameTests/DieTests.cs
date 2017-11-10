@@ -113,5 +113,22 @@ namespace DiceGame.Tests {
             Assert.AreNotEqual(1000, foundDraw);
 
         }
+
+        [TestMethod()]
+        public void DieTest6()
+        {
+            Die die = new Die(9, 5);
+            Assert.AreEqual(5, die.TopFace);
+            Assert.AreEqual(9, die.NbFaces);
+        }
+
+        [TestMethod()]
+        public void DieTest7()
+        {
+            Die die = new Die(9, 5);
+            string target = die.GetTopFace().Symbol;
+            Assert.AreEqual(5, die.TopFace);
+            Assert.AreEqual(target, die.Faces[5].Symbol);
+        }
     }
 }
