@@ -1,10 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/** 
+ * version 1.0
+ * CHAUCHE Benoit
+ * MENDEZ Gregory
+ * ROSSET Alexandre
+ * Date : 02.11.2017 16:06:35
+ * 
+ * Updated by SILKA Besmir
+ * version 2.0
+ * 07.11.2017
+ */
 
-namespace DiceGame {
+namespace DiceGame
+{
     public class Player {
 
     }
