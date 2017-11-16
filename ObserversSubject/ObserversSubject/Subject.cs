@@ -10,8 +10,10 @@ using System.Collections.Generic;
 
 namespace ObserversSubject
 {
-    class Subject : Object
+    public class Subject : Object
     {
+        const double ABSOLUTE_ACCURACY = 0.1;
+
         //Fields
         private double _rate;
         private List<Object> _observers;
@@ -20,11 +22,12 @@ namespace ObserversSubject
         public double Rate {
             get => _rate;
             set {
-                if (value != _rate)
+                if (Math.Abs(_rate-value) > ABSOLUTE_ACCURACY)
                 {
+                    _rate = value;
                     this.UpdateObservers();
                 }
-                _rate = value;
+                
             }
         } 
         private List<object> Observers { get => _observers; set => _observers = value; }
@@ -34,9 +37,8 @@ namespace ObserversSubject
         /// </summary>
         public Subject()
         {
-            this.Rate = new double();
             this.Observers = new List<object>();
-            this.UpdateObservers();
+            this.Rate = 0;
         }
 
         /// <summary>
@@ -45,7 +47,10 @@ namespace ObserversSubject
         /// <param name="paramObserver">Observer to add</param>
         public void RegisterObserver(Object paramObserver)
         {
-            this.Observers.Add(paramObserver);
+            if (paramObserver != null)
+            {
+                this.Observers.Add(paramObserver);
+            }
         }
 
         /// <summary>

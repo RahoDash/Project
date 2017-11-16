@@ -9,7 +9,7 @@ using System;
 
 namespace ObserversSubject
 {
-    class Observer : Object
+    public class Observer : Object
     {
         //Const
         const int DEFAULT_ID = 1;
@@ -23,10 +23,7 @@ namespace ObserversSubject
         /// <summary>
         /// Default constructor
         /// </summary>
-        public Observer()
-        {
-            this.Id = DEFAULT_ID;
-        }
+        public Observer() :this (DEFAULT_ID){}
 
         /// <summary>
         /// Constructor with and Id
@@ -40,7 +37,7 @@ namespace ObserversSubject
         /// <summary>
         /// Show a message when the observer is updated
         /// </summary>
-        public void UpdateObserver()
+        public virtual void UpdateObserver()
         {
             Console.WriteLine("Observer "+Id.ToString()+" has received a notification");
         }
