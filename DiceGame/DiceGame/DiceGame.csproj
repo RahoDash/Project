@@ -55,11 +55,19 @@
     </Compile>
     <Compile Include="Die.cs" />
     <Compile Include="Face.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="DieView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DieView.Designer.cs">
+      <DependentUpon>DieView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DiceGameView.resx">
       <DependentUpon>DiceGameView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DieView.resx">
+      <DependentUpon>DieView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

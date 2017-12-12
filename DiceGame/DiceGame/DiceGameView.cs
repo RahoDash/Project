@@ -11,30 +11,60 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace DiceGame
 {
-    public partial class DiceGameView : Form {
-        private DiceGameController _controller;
-        public DiceGameController Controller { get => _controller; set => _controller = value; }
+    public partial class DiceGameView : Form
+    {
+        const string DEFAULT_NAME = "Die ";
+
+        int counter = 1;
+
+        private DiceGameModel _model;
+        private List<DieView> _dieV;
+
+        public DiceGameModel Model { get => _model; set => _model = value; }
+        public List<DieView> DieV { get => _dieV; set => _dieV = value; }
 
         public DiceGameView() {
             InitializeComponent();
-            Controller = new DiceGameController(this);
+            this.Model = new DiceGameModel(Convert.ToInt32(this.nudFaces.Value));
+            this.DieV = new List<DieView>();
         }
 
-        private void btnInit_Click(object sender, EventArgs e)
+        private void BtnInit_Click(object sender, EventArgs e)
         {
-            Controller.DeleteLabels();
-            Controller.Init(nudDice, nudFaces);
-            Controller.CreateLabels(nudDice);
+            if (this.DieV.Count > 0)
+            {
+                foreach (DieView d in this.DieV)
+                {
+                    d.Close();
+                }
+            }
+
+            this.Model = new DiceGameModel(Convert.ToInt32(this.nudFaces.Value));
+
+            this.DieV.Clear();
+
+            for (int i = 0; i < this.nudDice.Value; i++)
+            {
+                this.DieV.Add(new DieView(DEFAULT_NAME + counter.ToString(), 0, 0, this.Model));
+                counter++;
+            }
+            foreach (DieView d in this.DieV)
+            {
+                d.Show();
+            }
         }
 
-        private void btnRoll_Click(object sender, EventArgs e)
+        private void BtnRoll_Click(object sender, EventArgs e)
         {
-            Controller.RollDice();
-            Controller.ShowResult();
+            foreach (DiceGameController item in this.Model.Observer)
+            {
+                item.RollDice();
+            }
         }
     }
 }

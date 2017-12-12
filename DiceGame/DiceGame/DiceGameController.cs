@@ -17,20 +17,22 @@ using System.Windows.Forms;
 
 namespace DiceGame
 {
-    public class DiceGameController {
+    public class DiceGameController : IDisposable {
 
         //fields
         private DiceGameModel _model;
-        private DiceGameView _view;
+        private DieView _view;
 
         //properties
         public DiceGameModel Model { get => _model; set => _model = value; }
-        public DiceGameView View { get => _view; set => _view = value; }
+        public DieView View { get => _view; set => _view = value; }
 
         //constructor
-        public DiceGameController(DiceGameView view) {
-            this.Model = new DiceGameModel();
-            this.View = view;
+        internal DiceGameController(DieView paramView, DiceGameModel paramModel) {
+            this.Model = paramModel;
+            this.View = paramView;
+
+            this.Model.RegisterObserver(this);
         }
 
         /// <summary>
@@ -38,31 +40,9 @@ namespace DiceGame
         /// </summary>
         /// <param name="dice">Number of dice</param>
         /// <param name="faces">Number of faces</param>
-        public void Init(NumericUpDown dice, NumericUpDown faces )
+        public void Init(NumericUpDown dice, NumericUpDown faces)
         {
-            this.Model = new DiceGameModel(Convert.ToInt32(dice.Value), Convert.ToInt32(faces.Value));
-        }
-
-        /// <summary>
-        /// Create labels 
-        /// </summary>
-        /// <param name="nbOfDice">Number of label is the number of dice</param>
-        public void CreateLabels(NumericUpDown nbOfDice)
-        {
-            //ArrayList label = new ArrayList(Convert.ToInt16(nbOfDice.Value));
-            for (int i = 0; i < nbOfDice.Value; i++)
-            {
-                var temp = new Label();
-                temp.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-                temp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-                temp.Location = new System.Drawing.Point(20 + (60 * i), 25);
-                temp.Name = "lblDice" + i.ToString();
-                temp.Size = new System.Drawing.Size(50, 50);
-                temp.TabIndex = 0;
-                temp.Text = this.Model.Dice[i].GetTopFace().Symbol;
-                temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-                this.View.groupBox1.Controls.Add(temp);
-            }
+            this.Model = new DiceGameModel(Convert.ToInt32(faces.Value));
         }
 
         /// <summary>
@@ -70,35 +50,16 @@ namespace DiceGame
         /// </summary>
         public void RollDice()
         {
-            for (int i = 0; i < this.Model.Dice.Length; i++)
+            foreach (DiceGameController o in this.Model.Observer)
             {
-                this.Model.Dice[i].TopFace = this.Model.Dice[i].Roll();
+                o.Model.Die.TopFace = this.Model.Die.Roll();
+                this.View.UpdateView();
             }
         }
 
-        /// <summary>
-        /// Show the reslut of all dice rolled foreach dice
-        /// </summary>
-        public void ShowResult()
+        public void Dispose()
         {
-            int i = 0;
-            foreach (Label lbl in this.View.groupBox1.Controls.OfType<Label>())
-            {
-                lbl.Text = this.Model.Dice[i].GetTopFace().Symbol;
-                i++;
-            }
-        }
 
-        /// <summary>
-        /// Delete all the labels
-        /// </summary>
-        public void DeleteLabels()
-        {
-            foreach (Label lbl in this.View.groupBox1.Controls.OfType<Label>())
-            {
-                lbl.Dispose();
-                this.View.groupBox1.Controls.Clear();
-            }
         }
     }
 }
