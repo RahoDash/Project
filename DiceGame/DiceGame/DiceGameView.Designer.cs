@@ -72,7 +72,7 @@
             this.nudDice.Size = new System.Drawing.Size(54, 20);
             this.nudDice.TabIndex = 2;
             this.nudDice.Value = new decimal(new int[] {
-            1,
+            6,
             0,
             0,
             0});
@@ -94,7 +94,7 @@
             this.nudFaces.Size = new System.Drawing.Size(54, 20);
             this.nudFaces.TabIndex = 3;
             this.nudFaces.Value = new decimal(new int[] {
-            2,
+            6,
             0,
             0,
             0});
@@ -155,7 +155,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DiceGameView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "DiceGameView";
             ((System.ComponentModel.ISupportInitialize)(this.nudDice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFaces)).EndInit();
             this.ResumeLayout(false);

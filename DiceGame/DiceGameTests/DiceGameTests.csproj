@@ -65,9 +65,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DiceGame\DiceGame.csproj">
+    <ProjectReference Include="..\DiceGame\DiceGameMultiViews.csproj">
       <Project>{B93DCF48-19A2-4839-B53A-126C73057AFA}</Project>
-      <Name>DiceGame</Name>
+      <Name>DiceGameMultiViews</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

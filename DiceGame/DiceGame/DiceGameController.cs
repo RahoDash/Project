@@ -1,14 +1,14 @@
 ﻿/** 
- * version 1.0
- * CHAUCHE Benoit
- * MENDEZ Gregory
- * ROSSET Alexandre
- * Date : 02.11.2017 16:06:35
- * 
- * Updated by SILKA Besmir
- * version 2.0
- * 07.11.2017
- */
+* version 1.0
+* CHAUCHE Benoit
+* MENDEZ Gregory
+* ROSSET Alexandre
+* Date : 02.11.2017 16:06:35
+* 
+* Updated by SILKA Besmir
+* version 3.0
+* 12.12.2017
+*/
 
 using System;
 using System.Collections;
@@ -57,9 +57,12 @@ namespace DiceGame
             }
         }
 
+        /// <summary>
+        /// Dispose the controller all attach to it
+        /// </summary>
         public void Dispose()
         {
-
+            this.Model.UnregisterController(this);
         }
     }
 }

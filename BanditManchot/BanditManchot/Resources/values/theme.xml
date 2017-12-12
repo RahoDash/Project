@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="theme_material_wallpaper_background">#ffc62828</color>
+  <style name="Theme.Custom" parent="@android:style/Theme.Material.Wallpaper">
+    <item name="android:colorBackground">@color/theme_material_wallpaper_background</item>
+    <item name="android:windowBackground">?android:attr/colorBackground</item>
+    <item name="android:colorPrimary">#ff424242</item>
+    <item name="android:colorPrimaryDark">#fffafafa</item>
+    <item name="android:colorAccent">#fff1f8e9</item>
+    <item name="android:textColorPrimary">#ffeceff1</item>
+    <item name="android:textColorSecondary">#ffeceff1</item>
+    <item name="android:colorControlNormal">#ffeceff1</item>
+    <item name="android:colorButtonNormal">#ff4527a0</item>
+    <item name="android:colorControlActivated">#ffd1c4e9</item>
+  </style>
+</resources>

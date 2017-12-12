@@ -1,8 +1,4 @@
-﻿
-
-using System;
-using System.Collections.Generic;
-/** 
+﻿/** 
 * version 1.0
 * CHAUCHE Benoit
 * MENDEZ Gregory
@@ -10,9 +6,12 @@ using System.Collections.Generic;
 * Date : 02.11.2017 16:06:35
 * 
 * Updated by SILKA Besmir
-* version 2.0
-* 07.11.2017
+* version 3.0
+* 12.12.2017
 */
+
+using System;
+using System.Collections.Generic;
 namespace DiceGame
 {
     public class DiceGameModel {
@@ -42,6 +41,7 @@ namespace DiceGame
             this.Die = new Die(nbOfFaces);
         }
 
+        //Register an observer
         public void RegisterObserver(Object paramObserver)
         {
             if (paramObserver != null)
@@ -50,6 +50,8 @@ namespace DiceGame
             }
         }
 
+
+        //Remove an observer
         public void UnregisterController(Object paramObserver)
         {
             this.Observer.Remove(paramObserver);
