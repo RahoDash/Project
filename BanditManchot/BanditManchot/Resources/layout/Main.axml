@@ -2,6 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="350"
+        android:layout_height="120"
+        android:id="@+id/linearLayout1"
+        android:padding="10"
+        android:layout_marginTop="10"
+        android:layout_marginRight="20"
+        android:layout_marginLeft="20">
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:id="@+id/imageView1"
+            android:scaleType="fitCenter"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="top" />
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="top"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp" />
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="100"
+            android:layout_height="100dp"
+            android:id="@+id/imageView3"
+            android:layout_gravity="top" />
+    </LinearLayout>
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        android:layout_margin="10" />
 </LinearLayout>
