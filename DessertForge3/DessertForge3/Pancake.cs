@@ -1,6 +1,6 @@
 ﻿namespace DessertForge3
 {
-    class Pancake : Dessert
+    public class Pancake : Dessert
     {
         const string DEFAULT_NAME = "Crêpe";
         const decimal DEFAULT_PRICE = 1.50M;

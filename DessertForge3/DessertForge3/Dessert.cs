@@ -1,6 +1,6 @@
 ﻿namespace DessertForge3
 {
-    class Dessert
+    public class Dessert
     {
         const string DEFAULT_NAME = "No-Name";
         const decimal DEFAULT_PRICE = 0.0M;

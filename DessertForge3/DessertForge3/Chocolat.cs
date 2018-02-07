@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DessertForge3
 {
-    class Chocolat : IngredientDecorator
+    public class Chocolat : IngredientDecorator
     {
         const int DEFAULT_COCOA_PERCENT = 70;
         const string DEFAULT_INGREDIENT_NAME = "Chocolat";

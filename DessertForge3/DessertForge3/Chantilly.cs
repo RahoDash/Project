@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DessertForge3
 {
-    class Chantilly : IngredientDecorator
+    public class Chantilly : IngredientDecorator
     {
         const string DEFAULT_NAME_INGREDIENT = "Chantilly";
         const decimal DEFAULT_PRICE_INGREDIENT = 0.50M;

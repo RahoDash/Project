@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Chantilly.cs" />
     <Compile Include="Chocolat.cs" />
-    <Compile Include="ChocolatWaffle.cs" />
     <Compile Include="Dessert.cs" />
     <Compile Include="IngredientDecorator.cs" />
     <Compile Include="Pancake.cs" />

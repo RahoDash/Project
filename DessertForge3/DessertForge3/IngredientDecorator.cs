@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DessertForge3
 {
-    class IngredientDecorator : Dessert
+    public class IngredientDecorator : Dessert
     {
         private Dessert _component;
         private string _ingredientName;
@@ -14,7 +14,7 @@ namespace DessertForge3
 
         public string IngredientName { get => _ingredientName; set => _ingredientName = value; }
         public decimal IngredientPrice { get => _ingredientPrice; set => _ingredientPrice = value; }
-        internal Dessert Component { get => _component; set => _component = value; }
+        public Dessert Component { get => _component; set => _component = value; }
 
         public override string Name
         {
@@ -38,5 +38,34 @@ namespace DessertForge3
         }
 
 
+        public Dessert RemoveIngredient(Type t)
+        {
+
+            bool found = false;
+
+            if (this.GetType() == t)
+            {
+                return this.Component;
+            }
+            else
+            {
+                Dessert currentObject = this.Component;
+                Dessert previousObject = this;
+                while (currentObject.GetType().BaseType == typeof(IngredientDecorator) && (found==false))
+                {
+                    if (currentObject.GetType() == t)
+                    {
+                        (previousObject as IngredientDecorator).Component = (currentObject as IngredientDecorator).Component;
+                        found = true;
+                    }
+                    else
+                    {
+                        previousObject = (previousObject as IngredientDecorator).Component;
+                        currentObject = (currentObject as IngredientDecorator).Component;
+                    }
+                }
+                return this;
+            }
+        }
     }
 }
