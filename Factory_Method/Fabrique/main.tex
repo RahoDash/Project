@@ -1,0 +1,365 @@
+%$LastChangedDate: 2018-02-01 22:14:23 +0100 (Fri, 22 Dec 2017) $
+%$LastChangedRevision: 7989 $
+%$LastChangedBy: marechal $
+
+% compilation without/with correction
+\newif\ifCOR
+%\CORtrue
+
+\newif\ifIncludesEmbedded
+\IncludesEmbeddedtrue
+
+% C. Maréchal
+% 01/2007
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[francais]{babel} % Typographie
+\usepackage[T1]{fontenc}     % Saisie en
+\usepackage[utf8]{inputenc} % français
+\usepackage{lmodern}
+
+%% Réglages généraux
+\usepackage[left=3.0cm, right=2.3cm, top=3cm, bottom=2.5cm]{geometry} % taille de la feuille
+\usepackage{fancyhdr} % Titre courant
+\usepackage{setspace} % Interligne
+\usepackage{lscape}   % Mode paysage
+\usepackage{multicol}  % Plusieurs colonnes
+\usepackage{placeins}
+\usepackage{caption}
+
+%% Packages pour les tableaux
+\usepackage{array}     % Outils supplémentaires
+\usepackage{multirow}  % Colonnes multiples
+\usepackage{tabularx}  % Largeur totale donnée
+\usepackage{longtable} % sur plusieurs pages
+\usepackage{fancybox}
+
+%paquets mathématiques
+\usepackage{amsmath, amssymb, mathrsfs, theorem}
+\usepackage{wasysym} % symboles exotiques : \smiley...
+
+\usepackage{lastpage} % pour avoir \pageref{LastPage} : le nombre total de pages du doc
+\usepackage{verbatim} % for \begin{comment}
+\usepackage{fancyvrb}
+
+\usepackage{svn-multi}   % Subversion keywords access
+
+\svnid{$Id: Fi_Csharp_DP_Decorator.tex 7989 2017-12-22 21:14:23Z marechal $} 
+
+\usepackage{tikz}
+\usetikzlibrary{positioning} % for below= of node_name
+\usetikzlibrary{shapes.geometric} %for ellipse node shape
+\usepackage{tikz-uml}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=false}
+\hypersetup{pdfauthor=C. Maréchal, pdfkeywords=CFPT-EI Csharp}
+\hypersetup{pdfstartpage=1}
+\hypersetup{pdfpagemode=None} %FullScreen, None
+\hypersetup{pdfpagelayout=SinglePage} %SinglePage, OneColumn, TwoColumnLeft, TwoColumnRight
+\hypersetup{pdfstartview=Fit} %Fit, FitH, FitV, FitB, FitBH, FitBV
+
+\pdfcompresslevel=9
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.png, .PNG, .jpg, .JPG, .pdf, .PDF}
+\graphicspath{{images/}}
+
+%----------------------------------------------------------
+%définition de nouvelles commandes
+% guillemets à la française (eg=entre guillemets)
+\newcommand{\eg}[1]{\og{}#1\fg{}}
+\newcommand{\egt}[1]{\eg{\texttt{#1}}}
+\newcommand{\ege}[1]{\eg{\emph{#1}}}
+
+\newcommand{\cs}{\emph{C\#}}
+\newcommand{\vs}{\emph{Visual~Studio}}
+
+%supprime toute indentation de paragraphe
+\setlength{\parindent}{0cm}
+
+%macro generating for correction): 
+% see global variable \COR above
+% - exercice
+% - exercice + correction
+\newcommand{\cor}[2]{
+\ifCOR{#1}\else{#2}\fi
+}
+
+%infos sur le document : auteur, titre, version (utilisées en page de garde, pied de page, filigrane...)
+\newcommand{\docauthor}{B. Silka}
+\newcommand{\docversion}{}
+\newcommand{\doctitle}{}
+%date du document
+\newcommand{\docdateddmmyy}{01 Février 2018}
+\newcommand{\docdatemmyy}{01/02/2018}
+\newcommand{\class}{CFPT-EI}
+%----------------------------------------------------------
+
+% Entête et pied de page.
+\pagestyle{fancy}
+\fancyfoot[CO]{\footnotesize\thepage~/~\pageref{LastPage}}
+\fancyhead[LO,CO,RO]{}
+
+% ne pas modifier la commande exo
+% modifier les paramètres d'appel #1, #2, #3
+%#1 : numéro du ds
+%#2 : classe
+%#3 : date de l'épreuve
+\newcommand{\exo}[3]{
+	\begin{center}
+		\textsc{Patron de conception (\emph{Design pattern})\\Fabrique (\emph{FactoryMethod}) #1}\\
+		#2\hfill\textit{#3}
+	\end{center}
+	\hrule\vspace{\baselineskip}
+}	
+
+% lstlisting configuration
+\input{inc_lst_csharp.tex}
+
+\ifIncludesEmbedded
+\usepackage{embedfile}
+\embedfile{inc_lst_csharp.tex}
+\embedfile{tikz-uml.sty}
+\embedfile{main.tex}
+\fi
+
+\newcommand{\code}[1]{\lstinline[basicstyle=\normalsize\ttfamily]|#1|}
+\newcommand{\DP}{\emph{design pattern}}
+
+% le document commence réellement ici
+\begin{document}
+\exo{}{\class{}}{\docdateddmmyy{}}
+
+
+\section{Introduction}
+\index{fabrique@fabrique (\emph{fabrique})}
+
+But~:
+\begin{itemize}
+\item permet d'instancier des objets dont le type est dérivé d'un type abstrait. La classe exacte de l'objet n'est donc pas connue par l'appelant.
+\end{itemize}
+\medskip
+Cas d'utilisation~: utilisez le \DP{} \eg{Fabrique}~:
+\begin{itemize}
+\item Les fabriques sont utilisées dans les toolkits ou les frameworks, car leurs classes sont souvent dérivées par les applications qui les utilisent.
+\item Des hiérarchies de classes parallèles peuvent avoir besoin d'instancier des classes de l'autre.
+\end{itemize}
+\medskip
+
+Diagramme de classes~: voir Fig.\ref{fig-fabrique-class-diagram}
+
+\begin{figure}[htp]
+	\shorthandoff{:;!?}
+	\centering
+	\begin{tikzpicture}[scale=.95, transform shape]
+	\umlclass[x=0, y=0, type=abstract]{Product}{}{}
+	
+	\umlclass[x=7, y=0, width=18ex, type=abstract]{Creator}{}
+	{\umlvirt{FactoryMethod()}
+	\\AnOperation()}
+	
+	\umlclass[x=7, y=-3, width=18ex]{ConcreteCreatorA}{}
+	{FactoryMethod()\\}
+	\umlinherit{ConcreteCreatorA}{Creator}
+	
+	\umlclass[x=0, y=-3, width=18ex]{ConcreteProductA}{}{}
+    \umluniassoc[arg=<<instantiate>>, pos=0.5]{ConcreteCreatorA}{ConcreteProductA}
+	\umlinherit{ConcreteProductA}{Product}
+	
+	\end{tikzpicture}
+	\shorthandon{:;!?}
+	\caption{Fabrique (\emph{Factory Method})~: diagramme de classes générique}
+	\label{fig-fabrique-class-diagram}
+\end{figure}
+
+\FloatBarrier
+Explications de la figure~\ref{fig-decorator-class-diagram}~:
+\begin{itemize}
+\item \texttt{Creator}~:
+	\begin{itemize}
+	\item classe abstraite\footnote{classe abstraite~: classe ne pouvant pas être instanciée.} (italique en UML) qui servira d'intermédiaire
+	\item déclare la méthode fabrique, qui renvoie un objet de type Product. Le créateur peut également définir une implémentation par défaut de la méthode usine qui renvoie un objet ConcreteProduct par défaut
+	\item peut appeler la méthode \texttt{FactoryMethod()} pour créer un objet Product
+\end{itemize}
+\item \texttt{ConcreteCreator}~:
+	\begin{itemize}
+	\item classe concrète à laquelle on devra \textit{override} la méthode de \textit{FactoryMethod()}, et ajouter dynamiquement des responsabilités
+(champs, méthodes) supplémentaires.
+	\end{itemize}
+\item \texttt{Product}~:
+    \begin{itemize}
+	\item classe abstraite\footnote{classe abstraite~: classe ne pouvant pas être instanciée.} qui servira d'intermédiaire
+	\end{itemize}
+\item \texttt{ConcretProduct}~:
+    \begin{itemize}
+	\item classe concrète à laquelle on désire ajouter dynamiquement des responsabilités
+(champs, méthodes) supplémentaires.
+	\end{itemize}
+	
+\item utilisation~:
+\begin{lstlisting}
+/// <summary>
+/// The 'Creator' abstract class
+/// </summary>
+abstract class Creator
+{
+    public abstract Product FactoryMethod();
+}
+\end{lstlisting}
+\begin{lstlisting}
+/// <summary>
+/// A 'ConcreteCreator' class
+/// </summary>
+class ConcreteCreatorA : Creator
+{
+    public override Product FactoryMethod()
+    {
+        return new ConcreteProductA();
+    }
+}
+\end{lstlisting}
+\begin{lstlisting}
+/// <summary>
+/// The 'Product' abstract class
+/// </summary>
+abstract class Product { }
+\end{lstlisting}
+\begin{lstlisting}
+/// <summary>
+/// A 'ConcreteProduct' class
+/// </summary>
+class ConcreteProductA : Product { }
+\end{lstlisting}
+\item L'objet \texttt{Creator} défini la méthode fabrique qui va être utilisé par les interfaces et retournera le \texttt{Product}.~
+\item L'objet \texttt{ConcreteCreator} \textit{override} la méthode et instentie le \texttt{ConcreteProductA}.
+\item L'objet \texttt{Product} qui est une classe abstraite\footnote{classe abstraite~: classe ne pouvant pas être instanciée.}.
+\item L'objet \texttt{ConcreteProductA} qui va implémenter l'interface de \texttt{Product}
+
+\end{itemize}
+
+\section{Exemple}
+\subsection{Cahier des charges}
+Création de différent documents (\emph{Document})~:
+\begin{itemize}
+    \item CV~:
+    \begin{itemize}
+        \item CompétencePage
+        \item EducationPage
+        \item ExpriencePage
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item Rapport~:
+    \begin{itemize}
+        \item IntroductionPage
+        \item ResultatsPage
+        \item ConclusionPage
+        \item SommairePage
+        \item BibliographiePage
+    \end{itemize}
+\end{itemize}
+
+Application (console) permettant~:
+\begin{itemize}
+\item de créer un document~;
+\item d'afficher le nom du document et les noms des pages~;
+\end{itemize}
+\medskip
+
+\subsection{Diagramme de classes}
+\begin{figure}[htp]
+	\shorthandoff{:;!?}
+	\centering
+	\begin{tikzpicture}[scale=.95, transform shape]
+	\umlclass[x=0, y=0, width=18ex, type=abstract]{Document}
+	{--\_pages:List<Page>:}
+	{
+	    <<ctor>>Document()\\
+	    +<<property>>Pages:List<Page>\{read-only\}\\
+	    \umlvirt{+CreatePages():void}
+	}
+	
+	\umlclass[below=2cm of Document, width=18ex]{Resume}{}
+	{+CreatePages():void\\}
+	\umlinherit{Resume}{Document}
+	
+	\umlclass[below=2cm of Resume, width=18ex]{EducationPage}{}{}
+    \umluniassoc[arg=<<instantiate>>, pos=0.5]{Resume}{EducationPage}
+    
+    \umlclass[below=2cm of Resume, xshift=-5cm, width=18ex]{ExperiencePage}{}{}
+    \umluniassoc[arg=<<instantiate>>, pos=0.5]{Resume}{ExperiencePage}
+    
+    \umlclass[below=2cm of Resume, xshift=5cm, width=18ex]{SkillsPage}{}{}
+    \umluniassoc[arg=<<instantiate>>, pos=0.5]{Resume}{SkillsPage}
+	
+	\umlclass[below=2cm of EducationPage, type=abstract]{Page}{}{}
+	\umlinherit{EducationPage}{Page}
+	\umlinherit{ExperiencePage}{Page}
+	\umlinherit{SkillsPage}{Page}
+	
+	\end{tikzpicture}
+	\shorthandon{:;!?}
+	\caption{Fabrique (\emph{Factory Method})~: diagramme de classes générique}
+	\label{fig-decorator-class-diagram}
+\end{figure}
+
+Explications~:
+\begin{itemize}
+
+\item classe \textit{Document}
+    \begin{itemize}
+        \item la propriété de \texttt{Page} sera en lecteur seulement (\emph{getter})
+        \item le constructeur devra appeler la méthode fabrique de la classe \texttt{CreatePages()}
+        \item la méthode fabrique sera juste la déclaration d'une méthode abstraite\footnote{classe abstraite~: classe ne pouvant pas être instanciée.}
+    \end{itemize}
+\item classe \textit{Resume} 
+    \begin{itemize}
+        \item la classe heritera de la classe abstraite\footnote{classe abstraite~: classe ne pouvant pas être instanciée.} de \texttt{Document}
+        \item la classe aura la methode \texttt{CreatePages()} en ovveride
+    \end{itemize}
+\item classe \texttt{EducationPage}, \texttt{ExperiencePage} et \texttt{SkillsPage} : héritières de \texttt{Pages} 
+\item classe \texttt{Page} : classe abstraite\footnote{classe abstraite~: classe ne pouvant pas être instanciée.}
+\end{itemize}
+
+\section{Références}
+\begin{itemize}
+\item \url{http://www.dofactory.com/Patterns/Patterns.aspx}
+\item \url{https://fr.wikipedia.org/wiki/Fabrique_(patron_de_conception)}
+\end{itemize}
+\newpage
+\subsection{Sources}
+
+
+
+\newcommand{\listingPath}{./code}
+\newcommand{\lstinputCsharp}[1]{
+\lstinputlisting[caption={\texttt{#1.cs}}, label={list-#1}, linerange=BeginList-EndList, includerangemarker=false, framexleftmargin=-15pt, numbersep=-8pt, xleftmargin=-18pt] {\listingPath/#1.cs}}
+
+\lstinputCsharp{Document}
+\lstinputCsharp{Resume}
+\lstinputCsharp{Page}
+\lstinputCsharp{SkillsPage}
+\lstinputCsharp{ExperiencePage}
+\lstinputCsharp{EducationPage}
+\lstinputCsharp{Report}
+\lstinputCsharp{IntroductionPage}
+\lstinputCsharp{SummaryPage}
+\lstinputCsharp{ResultsPage}
+\lstinputCsharp{ConclusionPage}
+\lstinputCsharp{BibliographyPage}
+\lstinputCsharp{Program}
+
+\begin{Verbatim}[frame=single, label={Console}]
+Resume--
+ SkillsPage
+ EducationPage
+ ExperiencePage
+ 
+Report--
+ IntroductionPage
+ ResultsPage
+ ConclusionPage
+ SummaryPage
+ BibliographyPage
+\end{Verbatim}
+\end{document}

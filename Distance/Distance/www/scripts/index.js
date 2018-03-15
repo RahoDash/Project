@@ -27,4 +27,25 @@
     function onResume() {
         // TODO: cette application a été réactivée. Restaurez l'état de l'application ici.
     };
-} )();
+
+    
+})();
+
+function Calculate() {
+    var result = document.getElementById("result");
+
+    if (result != null) {
+        result.remove();
+    }
+
+    var temps = document.getElementById("temps").value;
+    var vitesse = document.getElementById("vitesse").value;
+
+    var distance = temps * vitesse;
+
+    var span = document.createElement("p");
+    span.setAttribute("id", "result");
+    var textResult = document.createTextNode("Vous avez parcourus " + distance + " km");
+    span.appendChild(textResult);
+    document.getElementById("deviceready").appendChild(span);
+};
